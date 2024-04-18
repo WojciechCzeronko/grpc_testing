@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.czer.integer;
+
+option java_multiple_files = true;
+
+service IntegerService {
+  rpc increment (IncrementIntegerRequest) returns (stream IncrementIntegerResponse) {}
+}
+
+message IncrementIntegerRequest {
+  int32 initial = 1;
+  int32 noOfIncrements = 2;
+}
+
+message IncrementIntegerResponse {
+  int32 nextInteger = 1;
+}

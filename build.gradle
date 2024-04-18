@@ -1,0 +1,76 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.21'
+    id 'com.google.protobuf' version '0.9.4'
+}
+
+group 'org.czer.grpc_app'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        proto {
+            srcDir "src/main/kotlin/proto"
+        }
+    }
+}
+
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "17"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "17"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:$version_protobuf"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:$version_grpc"
+        }
+        grpckt {
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:$version_grpc_kotlin:jdk8@jar"
+        }
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.plugins {
+                grpc {}
+                grpckt {}
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${kotlinx_version}"
+
+
+    implementation "io.grpc:grpc-kotlin-stub:$version_grpc_kotlin"
+    implementation "io.grpc:grpc-protobuf:$version_grpc"
+    implementation "io.grpc:grpc-netty:$version_grpc"
+    implementation "io.grpc:grpc-stub:$version_grpc"
+
+    implementation "org.slf4j:slf4j-simple:2.0.13"
+    implementation "org.slf4j:slf4j-api:2.0.7"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
