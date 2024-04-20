@@ -6,6 +6,7 @@ option java_multiple_files = true;
 
 service IntegerService {
   rpc increment (IncrementIntegerRequest) returns (stream IncrementIntegerResponse) {}
+  rpc next (NextValueRequest) returns (NextValueResponse) {}
 }
 
 message IncrementIntegerRequest {
@@ -15,4 +16,12 @@ message IncrementIntegerRequest {
 
 message IncrementIntegerResponse {
   int32 nextInteger = 1;
+}
+
+message NextValueRequest{
+  int32 initial = 1;
+}
+
+message NextValueResponse{
+  int32 next = 1;
 }

@@ -4,12 +4,11 @@ import io.grpc.ServerBuilder
 
 
 fun helloServer() {
-    val helloService = HelloService()
-    val integerService = IntegerService()
+    val integerService = IntegerServiceJava()
+    val integerService2 = IntegerServiceKotlin()
     val port = 8088
     val server = ServerBuilder
         .forPort(port)
-        .addService(helloService)
         .addService(integerService)
         .build()
 
@@ -20,6 +19,7 @@ fun helloServer() {
 
     server.start()
     println("Starting gRPC server for service/s: ${(server.services).map { it.serviceDescriptor.name }}")
+    println("Listening on port: $port")
     server.awaitTermination()
 }
 

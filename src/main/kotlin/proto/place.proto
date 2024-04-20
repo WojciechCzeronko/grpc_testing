@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package com.czer.place;
+
+option java_multiple_files = true;
+
+service PlaceService {
+  rpc GetPlace (Coordinates) returns (PlaceDetails) {}
+  rpc ListPlaces (Coordinates) returns (stream PlaceDetails){}
+  rpc PlaceAround (stream Coordinates) returns (PlaceDetails){}
+  rpc PlacesAlong (stream Coordinates) returns(stream PlaceDetails){}
+}
+
+message Coordinates {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message Address{
+  string street = 1;
+  int32 street_number = 2;
+  string city = 3;
+  string postal_code = 4;
+  string country = 5;
+}
+
+enum Category{
+  OTHER = 0;
+  CHURCH = 1;
+  RESTAURANT = 2;
+  CINEMA = 3;
+  SHOP = 4;
+}
+
+message PlaceDetails {
+  string name = 1;
+  Coordinates location = 2;
+  Address address = 3;
+  Category category = 4;
+  string id = 5;
+}
+

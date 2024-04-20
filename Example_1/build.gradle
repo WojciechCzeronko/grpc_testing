@@ -1,0 +1,25 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'org.czer.grpc_app'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation rootProject
+}
+
+test {
+    useJUnitPlatform()
+    useTestNG(){
+        outputDirectory = file("$projectDir/report/")
+    }
+}
+kotlin {
+    jvmToolchain(17)
+}
