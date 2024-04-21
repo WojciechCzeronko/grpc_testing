@@ -14,12 +14,6 @@ dependencies {
     implementation rootProject
 }
 
-test {
-    useJUnitPlatform()
-    useTestNG(){
-        outputDirectory = file("$projectDir/report/")
-    }
-}
 kotlin {
     jvmToolchain(17)
 }

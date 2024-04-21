@@ -5,9 +5,13 @@ package com.czer.place;
 option java_multiple_files = true;
 
 service PlaceService {
+  // unary
   rpc GetPlace (Coordinates) returns (PlaceDetails) {}
+  // server streaming
   rpc ListPlaces (Coordinates) returns (stream PlaceDetails){}
+  // client streaming
   rpc PlaceAround (stream Coordinates) returns (PlaceDetails){}
+  // bidirectional streaming
   rpc PlacesAlong (stream Coordinates) returns(stream PlaceDetails){}
 }
 

@@ -80,9 +80,12 @@ allprojects{
 
     }
 
+    test {
+        useJUnitPlatform()
+        useTestNG(){
+            outputDirectory = file("$projectDir/report/")
+            useDefaultListeners = true
+        }
+    }
 }
 
-
-test {
-    useJUnitPlatform()
-}
