@@ -5,12 +5,12 @@ import service.IntegerServiceJava
 import service.IntegerServiceKotlin
 import service.PlaceServiceKotlin
 
+private const val port = 8088
 
-fun helloServer() {
-    val integerService = IntegerServiceJava()
-    val integerService2 = IntegerServiceKotlin()
+fun rpcServer() {
+    val integerService = IntegerServiceJava() //java implementation of the service
+//    val integerService2 = IntegerServiceKotlin() //kotlin implementation of the service
     val placeService = PlaceServiceKotlin()
-    val port = 8088
     val server = ServerBuilder
         .forPort(port)
         .addService(integerService)
@@ -29,5 +29,5 @@ fun helloServer() {
 }
 
 fun main() {
-    helloServer()
+    rpcServer()
 }

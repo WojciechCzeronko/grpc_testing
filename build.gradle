@@ -32,15 +32,14 @@ allprojects{
 
     repositories {
         mavenCentral()
-        mavenCentral()
     }
 
     apply plugin: "java"
     apply plugin: "com.google.protobuf"
 
     dependencies {
-        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx_version}"
-        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${kotlinx_version}"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${version_kotlinx}"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${version_kotlinx}"
 
 
         implementation "io.grpc:grpc-kotlin-stub:$version_grpc_kotlin"
@@ -49,12 +48,12 @@ allprojects{
         implementation "io.grpc:grpc-stub:$version_grpc"
 
         implementation "org.slf4j:slf4j-simple:2.0.13"
-        implementation "org.slf4j:slf4j-api:2.0.7"
+        implementation "org.slf4j:slf4j-api:2.0.13"
 
 
         implementation "org.jetbrains.kotlin:kotlin-stdlib"
 
-        testImplementation 'org.testng:testng:7.10.1'
+        implementation "org.testng:testng:$version_testng"
     }
 
     protobuf {
