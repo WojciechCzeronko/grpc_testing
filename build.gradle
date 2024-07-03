@@ -18,7 +18,17 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "17"
 }
 
-
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(
+                'Main-Class': 'server.ServerKt'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 allprojects{
 
@@ -51,7 +61,7 @@ allprojects{
         implementation "org.slf4j:slf4j-api:2.0.13"
 
 
-        implementation "org.jetbrains.kotlin:kotlin-stdlib"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
 
         implementation "org.testng:testng:$version_testng"
     }
