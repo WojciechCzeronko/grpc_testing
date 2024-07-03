@@ -1,5 +1,6 @@
 package client
 
+import client.example_1.IntegersClient
 import com.czer.integer.IncrementIntegerRequest
 import com.czer.integer.NextValueRequest
 import org.testng.Assert

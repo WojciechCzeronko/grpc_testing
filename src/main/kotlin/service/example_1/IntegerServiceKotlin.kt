@@ -1,4 +1,4 @@
-package service
+package service.example_1
 
 
 import com.czer.integer.*
@@ -23,7 +23,7 @@ class IntegerServiceKotlin : IntegerServiceGrpcKt.IntegerServiceCoroutineImplBas
                 val response = IncrementIntegerResponse.newBuilder().setNextInteger(it).build()
                 emit(response)
                 logger.info("sending $response")
-                delay(500)
+                delay(2000)
             }
         }
     }

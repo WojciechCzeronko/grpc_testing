@@ -1,4 +1,4 @@
-package service
+package service.example_2
 
 
 import com.czer.place.Coordinates

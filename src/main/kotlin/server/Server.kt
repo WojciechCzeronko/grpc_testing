@@ -1,9 +1,8 @@
 package server
 
 import io.grpc.ServerBuilder
-import service.IntegerServiceJava
-import service.IntegerServiceKotlin
-import service.PlaceServiceKotlin
+import service.example_1.IntegerServiceJava
+import service.example_2.PlaceServiceKotlin
 
 private const val port = 8088
 

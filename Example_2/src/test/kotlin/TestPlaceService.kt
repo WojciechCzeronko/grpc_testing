@@ -1,4 +1,4 @@
-import client.PlaceClient
+import client.example_2.PlaceClient
 import com.czer.place.Coordinates
 import org.testng.Assert
 import org.testng.annotations.DataProvider

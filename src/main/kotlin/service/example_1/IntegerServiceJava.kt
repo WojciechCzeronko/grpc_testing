@@ -1,4 +1,4 @@
-package service
+package service.example_1
 
 
 import com.czer.integer.*
@@ -24,7 +24,7 @@ class IntegerServiceJava : IntegerServiceGrpc.IntegerServiceImplBase() {
 
             responseObserver.onNext(response)
             logger.info("sending $response")
-            Thread.sleep(500)
+            Thread.sleep(2000)
         }
         //notify there will be no more messages
         responseObserver.onCompleted()

@@ -8,7 +8,7 @@ This is an example project showing the basics of grpc testing with kotlin/gradle
 ## Executing Examples
 
 * Build teh server jar file and start the gRPC server
-  * `gradlew build -x test`
+  * `gradlew clean build -x test`
   * `cd build/libs`
   * `java -jar grpc_app-1.0-SNAPSHOT.jar`
 * Start the tests for module 1

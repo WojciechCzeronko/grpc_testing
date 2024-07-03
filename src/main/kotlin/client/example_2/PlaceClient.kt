@@ -1,5 +1,6 @@
-package client
+package client.example_2
 
+import client.DefaultGrpcClient
 import com.czer.place.Coordinates
 import com.czer.place.PlaceDetails
 import com.czer.place.PlaceServiceGrpcKt.PlaceServiceCoroutineStub
